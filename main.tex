@@ -1,0 +1,91 @@
+\documentclass[12pt,letter]{article}
+\usepackage[utf8]{inputenc}
+\setlength{\marginparwidth}{2.8cm}
+\usepackage{geometry, amsmath, subfig, mathtools, amssymb, 
+            float, appendix, todonotes, ebgaramond, placeins,
+            hyperref, paralist, titlesec, afterpage, placeins,
+            mathtools, mathrsfs, todonotes, needspace, siunitx}
+\usepackage[longnamesfirst]{natbib}
+\setcitestyle{authoryear, open={(},close={)}}
+\usepackage{yhmath} % To get widehat
+
+\usepackage{pdflscape}
+\geometry{letterpaper, margin=1.25in}
+\titlespacing*{\section}{0pt}{1ex}{0.5ex}
+
+\title{A title}
+\date{Last updated: \today}
+ 
+\author{Jesper Bojeryd \& co-authors}
+
+\newcommand{\LL}{\mathscr{L}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Var}{\mathbb{V}\text{ar}}
+\newcommand{\Cov}{\mathbb{C}\text{ov}}
+
+% These, with the siunitx package, make it possible to align numbers in tables
+%   by the decimal point. From https://tex.stackexchange.com/questions/411352/dcolumn-and-aligning-string-values
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\def\sym#1{\ensuremath{^{\mathrlap{#1}}}}
+
+\title{A title}
+\date{Last updated: \today}
+ 
+\author{Jesper Bojeryd \& co-authors}
+ 
+\begin{document}
+ 
+\begingroup 
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+  \centering 
+  \LARGE A title!\footnote{For helpful comments and discussions we want to thank people. All mistakes are our own.} \\[0.2em]
+  \large Jesper Bojeryd \& co-authors\footnote{University of California, Los Angeles. Corresponding author: \url{jesperbojeryd@ucla.edu}.}\\[0.5em]
+  Last updated: \today
+  \\[1em]\par
+\endgroup
+
+\setcounter{footnote}{0}% Reset footnote counter
+
+\begin{abstract}
+    \noindent An abstract that summarizes the paper nicely
+\end{abstract}
+
+\section{Introduction}
+The first sentence
+
+\subsection{Examples of table with nicely aligned decimal points}
+This is an example of a table.
+
+\begin{table}[h]\centering
+\sisetup{table-format=-1.3, table-number-alignment=center,
+            table-space-text-pre=(, table-align-text-pre=false,
+            table-space-text-post={***}}
+    \begin{tabular}{lSSSSS}
+    \hline
+                        & {(1)} & {(2)} & {(3)} & {(4)} \\
+    \hline
+    {Post $\times$ Small Non-Fin.} & -0.026 & -0.042 & -0.046 & 0.066 \\
+                        & {(}0.051{)} & {(}0.055{)} & {(}0.047{) }& {(}0.082{)} \\
+    {log Assets} & & -0.185\sym{***}& -0.197\sym{***}&  \\
+                        & & {(}0.059{)} & {(}0.041{)} & \\
+    {Other controls} & {No} & {No} & {Yes} & {No} \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+
+\newpage\clearpage
+\appendix 
+\setcounter{figure}{0} \renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{table}{0} \renewcommand{\thetable}{A\arabic{table}}
+
+\section*{Appendix}
+Stuff that goes into an appendix
+
+\end{document}
+
+
