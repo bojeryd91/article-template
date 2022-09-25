@@ -4,9 +4,10 @@
 \usepackage{geometry, amsmath, subfig, mathtools, amssymb, 
             float, appendix, todonotes, ebgaramond, placeins,
             paralist, titlesec, afterpage, placeins,
-            mathtools, mathrsfs, todonotes, needspace, siunitx}
+            mathtools, mathrsfs, todonotes, needspace, siunitx,
+            booktabs}
 \usepackage[longnamesfirst]{natbib}
-\setcitestyle{authoryear, open={(},close={)}}
+\setcitestyle{authoryear, open={(},close={)}} % Is this necessary?
 \usepackage{yhmath} % To get widehat
 
 % https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
@@ -30,6 +31,12 @@
 % These, with the siunitx package, make it possible to align numbers in tables
 %   by the decimal point. From https://tex.stackexchange.com/questions/411352/dcolumn-and-aligning-string-values
 %\newcolumntype{d}[1]{D{.}{.}{#1}}
+\sisetup{
+    table-align-text-before = false,
+    table-align-text-after  = false,
+    input-open-uncertainty  = ,
+    input-close-uncertainty = ,
+}
 
 \title{A title}
 \date{Last updated: \today}
@@ -62,22 +69,24 @@ This is an example of a table.
 % Each S[table-format=...] has to be tailored to fit numbers, parentheses and stars.
 % To illustrate, two standard errors are centered and not aligned with decimal point.
 \begin{table}[h]\centering
-\sisetup{table-alignment-mode=format,
-            table-number-alignment=center, table-align-text-pre=false,
-            table-align-text-post=false}
-    \begin{tabular}{lS[table-format=-1.3]S[table-format=-1.5{**}]S[table-format=-1.2{***}]S[table-format=-2.3e2]}
-    \hline
-                        & {(1)} & {(2)} & {(3)} & {(4)} \\
-    \hline
-    {Post $\times$ Small Non-Fin.} & -0.026 & -0.00042** & -0.046 & 6.6e8 \\
-                        & {$(0.051)$} & {$(0.055)$} & {(}0.047{) }& {(}0.082{)} \\
-    {log Assets} & & -0.19***& -0.20***& 21.1e10\\
-                        & & {(}0.059{)} & {(}0.041{)} &%
-                        \\
-    {Other controls} & {No} & {No} & {Yes} & {No} \\
-    \hline
+    \begin{tabular}{lS[
+table-format = +1.3)]S[table-format=-1.5{**}]S[table-format=-1.2{***}]S[table-format=-2.1e2, parse-numbers=false]}
+    \toprule
+                        & {(1)}     & {(2)}      & {(3)}    & {(4)}   \\ \midrule
+    Post $\times$ Small Non-Fin.
+                        & -0.026    & -0.00042** & -0.046   & 6.6 \times 10^8   \\
+                        & (0.051)   & (0.055)    & (0.047)  & (0.082) \\
+    log Assets          &           & -0.19***   & -0.20*** & 21.1\times 10^{10} \\
+                        &           & (0.059)    & (0.041)  &         \\
+    Other controls      & {No} & {No} & {Yes} & {No} \\
+    \bottomrule
     \end{tabular}
 \end{table}
+
+
+
+
+
 
 \bibliographystyle{econ}
 \bibliography{references}
