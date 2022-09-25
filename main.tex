@@ -3,11 +3,14 @@
 \setlength{\marginparwidth}{2.8cm}
 \usepackage{geometry, amsmath, subfig, mathtools, amssymb, 
             float, appendix, todonotes, ebgaramond, placeins,
-            hyperref, paralist, titlesec, afterpage, placeins,
+            paralist, titlesec, afterpage, placeins,
             mathtools, mathrsfs, todonotes, needspace, siunitx}
 \usepackage[longnamesfirst]{natbib}
 \setcitestyle{authoryear, open={(},close={)}}
 \usepackage{yhmath} % To get widehat
+
+% https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+\usepackage[bookmarks=true, colorlinks=true, citecolor=blue]{hyperref}
 
 \usepackage{pdflscape}
 \geometry{letterpaper, margin=1.25in}
@@ -51,7 +54,7 @@
 \end{abstract}
 
 \section{Introduction}
-The first sentence
+The first sentence. And I learned stuff from \cite{paper2022}.
 
 \subsection{Examples of table with nicely aligned decimal points}
 This is an example of a table.
@@ -76,7 +79,7 @@ This is an example of a table.
     \end{tabular}
 \end{table}
 
-\bibliographystyle{plainnat}
+\bibliographystyle{econ}
 \bibliography{references}
 
 
