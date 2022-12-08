@@ -37,22 +37,19 @@
     input-open-uncertainty  = ,
     input-close-uncertainty = ,
 }
-
-\title{A title}
-\date{Last updated: \today}
  
-\author{Jesper Bojeryd \& co-authors}
+\usepackage{lipsum} % Only to work with template
  
 \begin{document}
  
-\begingroup 
+\begingroup\makeatletter
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
   \centering 
-  \LARGE A title!\footnote{For helpful comments and discussions we want to thank people. All mistakes are our own.} \\[0.2em]
-  \large Jesper Bojeryd \& co-authors\footnote{University of California, Los Angeles. Corresponding author: \url{jesperbojeryd@ucla.edu}.}\\[0.5em]
-  Last updated: \today
+  \LARGE\@title\footnote{For helpful comments and discussions we want to thank people. All mistakes are our own.} \\[0.2em]
+  \large\@author\footnote{University of California, Los Angeles. Corresponding author: \url{jesperbojeryd@ucla.edu}.}\\[0.5em]
+  \@date
   \\[1em]\par
-\endgroup
+\makeatother\endgroup
 
 \setcounter{footnote}{0}% Reset footnote counter
 
@@ -60,15 +57,21 @@
     \noindent An abstract that summarizes the paper nicely
 \end{abstract}
 
-\section{Introduction}
+\noindent
+I prefer to write the introduction as an unnumbered section. \lipsum[1]
+
+\section{The first section with a number}
 The first sentence. And I learned stuff from \cite{paper2022}. \citep[Example of self citation:][followed by more text.]{bojeryd1991}
 
+\lipsum[2-3]
+
 \subsection{Examples of table with nicely aligned decimal points}
-This is an example of a table.
+This is an example of a table, or, it is at Table \ref{tab:baseline}.
 
 % Each S[table-format=...] has to be tailored to fit numbers, parentheses and stars.
 % To illustrate, one standard error is centered and not aligned with decimal point.
-\begin{table}[h]\centering
+\begin{table}[t]\centering
+    \caption{Some regressions}\label{tab:baseline}
     \begin{tabular}{lS[table-format=-1.3)]S[table-format=-1.5{**}]S[table-format=-1.2{***}]S[table-format=-2.1)e2, parse-numbers=false]}
     \toprule
                         & {(1)}     & {(2)}      & {(3)}    & {(4)}              \\ \midrule
@@ -82,7 +85,7 @@ This is an example of a table.
     \end{tabular}
 \end{table}
 
-
+\lipsum[5-6]
 
 
 
@@ -98,6 +101,8 @@ This is an example of a table.
 
 \section*{Appendix}
 Stuff that goes into an appendix
+
+\lipsum[7]
 
 \end{document}
 
