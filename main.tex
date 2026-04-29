@@ -20,6 +20,11 @@
 \DeclareMathSymbol{7}\mathalpha{numbers}{"37}
 \DeclareMathSymbol{8}\mathalpha{numbers}{"38}
 \DeclareMathSymbol{9}\mathalpha{numbers}{"39}
+
+% Define indicator function
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+\newcommand{\bi}{\mathbbold{1}}
             
 \usepackage[longnamesfirst]{natbib} % The option writes out all authors names at first citation
 \setlength{\bibsep}{0pt plus 0.3ex}
@@ -102,7 +107,9 @@ This is an example of a table, or, it is at Table \ref{tab:baseline}.
 
 \lipsum[5-6]
 
-
+\begin{equation}
+    y_{i,t+h} = \beta\, x_t + \gamma \, \bi(x \in X)
+\end{equation}
 
 
 \bibliographystyle{econ}
